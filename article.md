@@ -20,7 +20,13 @@ Monotonic correlation is higher if both indicators rise together at different ra
 
 The world is a very complicated place - especially when it comes to analyzing countries. It's surprising that even then we found some correlation. A correlation of 0.25 is not amazing, but it is still surprising.
 
-Now the question is, how significant is such a correlation?  For this, we turn to Welch's t-test. This test returns two numbers: a statistic, and a p-value. The statistic tells us which indicator has a higher mean value.  The p-value tells us by resampling the same data over and over, how often would we find the mean values farther apart than the statistic. A p-value of 0.01 means we will find the mean values within the statistic range 0.99 out of 1.00 times, or 99% of the time.
+Now the question is, how significant is such a correlation? For this, we turn to Welch's t-test. This test returns two numbers: a statistic, and a p-value. The statistic tells us which indicator has a higher mean value. The p-value tells us by resampling the same data over and over, how often we would find the mean values farther apart than the statistic. A p-value of 0.01 means we will find the mean values within the statistic range 0.99 out of 1.00 times, or 99% of the time.
+Welch's t-test provided these values:
+Budget Revenues (statistic: -1.8, pvalue: 0.065)
+Exports (statistic: -3.5, pvalue: 0.0005)
+Imports (statistic: -1.8, pvalue: 0.073)
+
+A p-value of 0.0005 is definitely significant. So we can say Exports definitely affect the GDP per capita of a country. The other two values are close to the usual threshold of 0.05 we prefer, but they're a little more than that. Should we discount these two indicators? I think maybe it depends on what area you're applying the p-value to. For medical research a p-value of 0.01 or lower is preferred. For other conditions 0.05 or lower is preferred. For a messy case like comparing countries, 0.07 should be fine. I would consider Budget Revenues and Imports as significant.
 
 ## Interpretation
 
