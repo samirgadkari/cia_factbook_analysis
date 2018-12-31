@@ -4,9 +4,14 @@ Which countries are going to be prosperous? How are they faring today? Do they n
 ![Wealth Correlations image](./images/wealth_correlations.png)
 
 This image shows the correlations between the GDP per capita of a country against indicators that could affect this GDP.  The higher the correlation, the stronger the effect.  The indicators with the highest correlations (around 0.25 in this figure) are:
-  * Exports
-  * Imports
+
+  * Exports in USD
+  * Imports in USD
+  * Budget Revenues
   * Budget Expenditures
+
+The only high negative correlation is:
+  * Unemployment rate
 
 Notice that the Exports per capita, and Imports per capita are not as high.  They are calculated by dividing the Exports by the Population. If the GDP per capita increased, and the Exports increased, but the Population increased more, the correlation will be less.
 
@@ -20,11 +25,14 @@ Monotonic correlation is higher if both indicators rise together at different ra
 
 The world is a very complicated place - especially when it comes to analyzing countries. It's surprising that even then we found some correlation. A correlation of 0.25 is not amazing, but it is still surprising.
 
-Now the question is, how significant is such a correlation? For this, we turn to Welch's t-test. This test returns two numbers: a statistic, and a p-value. The statistic tells us which indicator has a higher mean value. The p-value tells us by resampling the same data over and over, how often we would find the mean values farther apart than the statistic. A p-value of 0.01 means we will find the mean values within the statistic range 0.99 out of 1.00 times, or 99% of the time.
+Now the question is, how significant is such a correlation? For this, we turn to the 1-sample Welch's t-test which compares the data to the T-distribution. Most processes in nature return data which is distributed normally (the normal distribution).  Some data does not match the normal distribution, but matches the T-distribution.
+
+This test returns two numbers: a statistic, and a p-value. The statistic tells us which indicator has a higher mean value. The p-value tells us by resampling the same data over and over, how often we would find the mean values farther apart than the statistic. A p-value of 0.01 means we will find the mean values within the statistic range 0.99 out of 1.00 times, or 99% of the time.
 Welch's t-test provided these values:
-Budget Revenues (statistic: -1.8, pvalue: 0.065)
-Exports (statistic: -3.5, pvalue: 0.0005)
-Imports (statistic: -1.8, pvalue: 0.073)
+
+  * Budget Revenues (statistic: -1.8, pvalue: 0.065)
+  * Exports (statistic: -3.5, pvalue: 0.0005)
+  * Imports (statistic: -1.8, pvalue: 0.073)
 
 A p-value of 0.0005 is definitely significant. So we can say Exports definitely affect the GDP per capita of a country. The other two values are close to the usual threshold of 0.05 we prefer, but they're a little more than that. Should we discount these two indicators? I think maybe it depends on what area you're applying the p-value to. For medical research a p-value of 0.01 or lower is preferred. For other conditions 0.05 or lower is preferred. For a messy case like comparing countries, 0.07 should be fine. I would consider Budget Revenues and Imports as significant.
 
@@ -37,6 +45,8 @@ The only way to increase a nations' wealth is to provide goods and services to o
 Companies invest this incoming revenue locally to get better efficiencies. Better efficiencies will allow them to keep more of what they earn from their trade. We don't have an indicator of efficiencies in our dataset.
 
 Companies spend on industrial equipment from developed countries to increase their efficiency. This is why Imports are linked to a nations' wealth. When you earn more, you're taxed more by the government. This is why the government Budget Revenues are correlated with the nations' wealth.
+
+The Unemployment Rate is the percentage of people unemployed. An increasing Unemployment Rate will decrease the GDP per capita, and this is what our data shows.
 
 # Which countries are going to be healthy?
 ![Health Correlations image](./images/health_correlations.png)
