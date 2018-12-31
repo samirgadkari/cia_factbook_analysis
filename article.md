@@ -1,7 +1,7 @@
 Which countries are going to be prosperous? How are they faring today? Do they need a hand joining the ranks of the developed countries? How do we help them? To answer these questions, we need data. Let's turn to the [CIA factbook](https://www.cia.gov/library/publications/the-world-factbook/) for data.
 
 # Which countries are going to be prosperous?
-![Correlations image](./images/correlations.png)
+![Wealth Correlations image](./images/wealth_correlations.png)
 
 This image shows the correlations between the GDP per capita of a country against indicators that could affect this GDP.  The higher the correlation, the stronger the effect.  The indicators with the highest correlations (around 0.25 in this figure) are:
   * Exports
@@ -38,12 +38,26 @@ Companies invest this incoming revenue locally to get better efficiencies. Bette
 
 Companies spend on industrial equipment from developed countries to increase their efficiency. This is why Imports are linked to a nations' wealth. When you earn more, you're taxed more by the government. This is why the government Budget Revenues are correlated with the nations' wealth.
 
+# Which countries are going to be healthy?
+![Health Correlations image](./images/health_correlations.png)
+Change in Health has the most positive correlation with the GDP per capita (around 0.2). It even has some linear correlation (around 0.1).
+
+All other correlations show up as Monotonic correlations.
+
+The External debt has a 0.2 correlation with change in health. A country borrowing from others is probably spending some of its money on its citizens health. This is the same with External debt per capita.
+
+The Population has a negative correlation with change in health (around 0.2). If your population is growing, the amount of money you can spend per person for health is decreasing.
+
+Industrial Production growth rate is also negatively correlated with health (around 0.2). This is not surprising given that our health indicators are:
+
+  * Infant mortality rate plus. With parents going to work, there will be less focus on children.
+
+  * HIV/AIDS prevalence rate in adults. More people working together means more chances of relationships and more chances of HIV transmission.
 # How are countries faring?
+This is how the overall health and wealth of countries looks like:
 ![Change in Health and Wealth of Countries](./images/countries.png)
 
-These four plots show the changes in health and wealth of countries.  The top left plot shows those countries that are increasing wealth, but decreasing health.  The one on the lower right shows countries that are increasing in health and wealth.  The top right shows countries whose health has improved, but wealth has fallen.  The bottom left shows countries whose health and wealth has decreased.
-
-Notice that most countries are showing increases in wealth.  This is a log-log plot, so the wealth is especially different from country to country.
+Notice that most countries are showing increases in wealth.
 
 Health data at the CIA factbook site was only for:
   * Infant mortality rate
